@@ -2,6 +2,8 @@
 
 **Sheaf-Theoretic Text Classification via Transformer Embeddings and Fano Plane Geometry**
 
+> 🌐 **[Live Demo](../../)** - Try it now in your browser! (GitHub Pages deployment in `/docs`)
+
 ## Overview
 
 This system implements a novel approach to semantic text classification by combining:
