@@ -1,0 +1,19 @@
+{
+  "name": "octonion-semantic-classifier",
+  "version": "1.0.0",
+  "description": "Sheaf-theoretic text classification via transformer embeddings and Fano plane geometry",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "transformers",
+    "octonions",
+    "sheaf-theory",
+    "semantic-classification",
+    "fano-plane"
+  ],
+  "author": "Brian (Axiomatic Research Laboratory)",
+  "license": "MIT"
+}
