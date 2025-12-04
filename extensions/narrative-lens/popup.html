@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narrative Lens</title>
+  <style>
+    body {
+      width: 400px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #e0e0e0;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 8px 0;
+      background: linear-gradient(90deg, #00f5ff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+      color: #888;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .instruction {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px;
+      border-radius: 8px;
+      border-left: 3px solid #00f5ff;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+
+    .status {
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+    }
+
+    .status.ready {
+      background: rgba(0, 255, 100, 0.1);
+      border: 1px solid rgba(0, 255, 100, 0.3);
+    }
+
+    .status.loading {
+      background: rgba(255, 200, 0, 0.1);
+      border: 1px solid rgba(255, 200, 0, 0.3);
+    }
+
+    .features {
+      margin-top: 16px;
+    }
+
+    .feature {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    .feature:last-child {
+      border-bottom: none;
+    }
+
+    .feature-icon {
+      display: inline-block;
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      background: rgba(0, 245, 255, 0.1);
+      border: 1px solid rgba(0, 245, 255, 0.3);
+      color: #00f5ff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background: rgba(0, 245, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .privacy-note {
+      margin-top: 16px;
+      padding: 8px;
+      background: rgba(0, 255, 100, 0.05);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: #00ff88;
+    }
+
+    a {
+      color: #00f5ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Narrative Lens</h1>
+  <div class="subtitle">Understand What You Read</div>
+
+  <div class="status ready" id="status">
+    ✓ Ready to analyze
+  </div>
+
+  <div class="instruction">
+    <strong>How to use:</strong><br>
+    1. Highlight any text on a webpage<br>
+    2. Right-click → "Analyze with Narrative Lens"<br>
+    3. See the semantic structure & coherence
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <span class="feature-icon">🔍</span>
+      <strong>Coherence Analysis</strong> - Is this internally consistent?
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🎨</span>
+      <strong>Semantic Framing</strong> - What perspective is being used?
+    </div>
+    <div class="feature">
+      <span class="feature-icon">📊</span>
+      <strong>Topology View</strong> - Visualize the structure
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🔄</span>
+      <strong>Compare Sources</strong> - See different framings side-by-side
+    </div>
+  </div>
+
+  <button id="analyzePageBtn">Analyze Entire Page</button>
+  <button id="optionsBtn">Settings & Privacy</button>
+
+  <div class="privacy-note">
+    🔒 <strong>Privacy First:</strong> All analysis happens locally in your browser.
+    We never see what you analyze.
+    <a href="https://github.com/yourusername/Octonion-Semantic-Classifier-System" target="_blank">View source code</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
