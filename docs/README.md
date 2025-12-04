@@ -104,8 +104,13 @@ MIT License - See [LICENSE](../LICENSE)
 
 ## Author
 
-**Brian @ Axiomatic Research Laboratory**
-Meta-Log Substrate System Development
+**Brian Thorne**
+Los Angeles, CA
+📧 bthornemail@gmail.com
+💰 [Cash App](https://cash.app/$brianthorne) | [Venmo](https://venmo.com/u/brianthorne)
+
+*Axiomatic Research Laboratory*
+*Meta-Log Substrate System Development*
 
 ---
 

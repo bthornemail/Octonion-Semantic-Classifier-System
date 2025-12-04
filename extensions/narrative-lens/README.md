@@ -204,9 +204,12 @@ We welcome contributions! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) fo
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/Octonion-Semantic-Classifier-System/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/Octonion-Semantic-Classifier-System/discussions)
-- **Email**: youremail@example.com
+- **Issues**: [GitHub Issues](https://github.com/bthornemail/Octonion-Semantic-Classifier-System/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/bthornemail/Octonion-Semantic-Classifier-System/discussions)
+- **Email**: bthornemail@gmail.com
+
+**Support Development**:
+💰 [Cash App](https://cash.app/$brianthorne) | [Venmo](https://venmo.com/u/brianthorne)
 
 ## License
 
