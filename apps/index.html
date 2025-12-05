@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethical Applications Suite - Octonion Semantic Classifier</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #00f5ff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    .principles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .badge {
+      padding: 8px 16px;
+      background: rgba(0, 255, 100, 0.1);
+      border: 1px solid rgba(0, 255, 100, 0.3);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #00ff88;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .app-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .app-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(0, 245, 255, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);
+    }
+
+    .app-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .app-title {
+      font-size: 1.5rem;
+      color: #00f5ff;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .app-desc {
+      color: #aaa;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .app-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .app-features li {
+      padding: 6px 0;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .app-features li::before {
+      content: '✓ ';
+      color: #00ff88;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .app-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(0, 245, 255, 0.2);
+      border: 1px solid rgba(0, 245, 255, 0.5);
+      color: #00f5ff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .app-link:hover {
+      background: rgba(0, 245, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .info-section {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+
+    .info-section h2 {
+      color: #ff00ff;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .info-section p {
+      color: #ccc;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Ethical Applications Suite</h1>
+      <p class="subtitle">Privacy-Preserving Tools for Truth-Seeking and Critical Thinking</p>
+
+      <div class="principles">
+        <div class="badge">🔒 Privacy First</div>
+        <div class="badge">🔓 Open Source</div>
+        <div class="badge">✓ Reproducible</div>
+        <div class="badge">🚫 No Data Collection</div>
+        <div class="badge">🎓 Educational Focus</div>
+      </div>
+    </header>
+
+    <div class="apps-grid">
+      <div class="app-card" onclick="window.location.href='../extensions/narrative-lens/'">
+        <div class="app-icon">🔍</div>
+        <div class="app-title">Narrative Lens</div>
+        <div class="app-desc">
+          Browser extension that helps you understand the structure and coherence of what you read in real-time.
+        </div>
+        <ul class="app-features">
+          <li>Coherence Analysis</li>
+          <li>Semantic Framing Detection</li>
+          <li>Cross-Platform Comparison</li>
+          <li>Context Provenance Tracking</li>
+        </ul>
+        <a href="../extensions/narrative-lens/" class="app-link">Load Extension →</a>
+      </div>
+
+      <div class="app-card" onclick="window.location.href='context-keeper/'">
+        <div class="app-icon">📖</div>
+        <div class="app-title">Context Keeper</div>
+        <div class="app-desc">
+          Personal knowledge management tool that helps you maintain consistent understanding of what you've learned.
+        </div>
+        <ul class="app-features">
+          <li>Reading History Tracking</li>
+          <li>Knowledge Graph Visualization</li>
+          <li>Belief Consistency Checking</li>
+          <li>Pattern Discovery</li>
+        </ul>
+        <a href="context-keeper/" class="app-link">Launch App →</a>
+      </div>
+
+      <div class="app-card" onclick="window.location.href='truth-commons/'">
+        <div class="app-icon">🌐</div>
+        <div class="app-title">Truth Commons</div>
+        <div class="app-desc">
+          Public research platform where anyone can verify narrative analysis with full transparency.
+        </div>
+        <ul class="app-features">
+          <li>Public Fact-Checking Database</li>
+          <li>Provenance Chain Verification</li>
+          <li>Transparent Methodology</li>
+          <li>Reproducible Analyses</li>
+        </ul>
+        <a href="truth-commons/" class="app-link">Open Platform →</a>
+      </div>
+
+      <div class="app-card" onclick="window.location.href='educational-tools/'">
+        <div class="app-icon">🎓</div>
+        <div class="app-title">Educational Tools</div>
+        <div class="app-desc">
+          Interactive learning platform that teaches critical thinking about information structure.
+        </div>
+        <ul class="app-features">
+          <li>Interactive Fano Plane Explorer</li>
+          <li>Critical Thinking Exercises</li>
+          <li>Coherence Detection Practice</li>
+          <li>Theory & Background</li>
+        </ul>
+        <a href="educational-tools/" class="app-link">Start Learning →</a>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>🔐 Our Privacy Guarantee</h2>
+      <p>
+        <strong>All analysis happens in your browser.</strong> We never collect, store, or transmit your data.
+        Every application in this suite runs entirely client-side using WebAssembly and the Transformers.js library.
+      </p>
+      <p>
+        You own your data. You control your data. We never see your data.
+      </p>
+      <p>
+        All source code is open and auditable. All methodology is transparent and reproducible.
+      </p>
+    </div>
+
+    <div class="info-section">
+      <h2>🎯 Who This Is For</h2>
+      <p>
+        <strong>Students:</strong> Analyze sources for research, check your writing for consistency, build your knowledge base.<br>
+        <strong>Researchers:</strong> Transparently analyze narratives, track provenance, collaborate with verifiable methodology.<br>
+        <strong>Journalists:</strong> Understand source framings, detect narrative mutations, maintain coherence records.<br>
+        <strong>Educators:</strong> Teach media literacy, create interactive lessons, assess student understanding.<br>
+        <strong>Citizens:</strong> Make informed decisions, understand news framing, develop critical analysis skills.
+      </p>
+    </div>
+
+    <div class="info-section">
+      <h2>📖 How It Works</h2>
+      <p>
+        These applications use a novel approach to semantic text classification combining:
+      </p>
+      <p>
+        <strong>Transformer Embeddings</strong> - State-of-the-art language understanding<br>
+        <strong>Octonion Algebra</strong> - 8-dimensional geometric structure from pure mathematics<br>
+        <strong>Cohomological Invariants</strong> - Topological measures of narrative coherence<br>
+        <strong>Sheaf Theory</strong> - Advanced mathematics for semantic spaces
+      </p>
+      <p>
+        The result: A system that can analyze the <em>structure</em> of information, not just the content.
+      </p>
+    </div>
+
+    <footer class="footer">
+      <p>Axiomatic Research Laboratory | Meta-Log Substrate System</p>
+      <p style="margin-top: 12px;">
+        <a href="https://github.com/yourusername/Octonion-Semantic-Classifier-System" style="color: #00f5ff; text-decoration: none;">
+          View Source Code on GitHub →
+        </a>
+      </p>
+      <p style="margin-top: 24px;">
+        <em>"We're not building truth detectors. We're building understanding amplifiers."</em>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

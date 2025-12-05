@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Keeper - Personal Knowledge Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h1>📖 Context Keeper</h1>
+        <p class="tagline">Your Personal Knowledge Graph</p>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-btn active" data-view="dashboard">
+          <span class="icon">📊</span>
+          Dashboard
+        </button>
+        <button class="nav-btn" data-view="articles">
+          <span class="icon">📚</span>
+          Reading History
+        </button>
+        <button class="nav-btn" data-view="graph">
+          <span class="icon">🕸️</span>
+          Knowledge Graph
+        </button>
+        <button class="nav-btn" data-view="beliefs">
+          <span class="icon">🧠</span>
+          Belief Check
+        </button>
+        <button class="nav-btn" data-view="export">
+          <span class="icon">💾</span>
+          Export / Import
+        </button>
+      </nav>
+
+      <div class="privacy-badge">
+        <div class="badge-icon">🔒</div>
+        <div class="badge-text">
+          <strong>100% Private</strong><br>
+          <small>All data stays on your device</small>
+        </div>
+      </div>
+
+      <div class="stats-summary">
+        <div class="stat">
+          <div class="stat-value" id="total-articles">0</div>
+          <div class="stat-label">Articles Analyzed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="knowledge-nodes">0</div>
+          <div class="stat-label">Knowledge Nodes</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard View -->
+      <div class="view active" id="dashboard-view">
+        <header class="page-header">
+          <h2>Dashboard</h2>
+          <p>Overview of your knowledge journey</p>
+        </header>
+
+        <div class="quick-actions">
+          <button class="action-card" id="analyze-new">
+            <div class="action-icon">➕</div>
+            <div class="action-title">Analyze New Article</div>
+            <div class="action-desc">Add a new article to your knowledge base</div>
+          </button>
+
+          <button class="action-card" id="check-consistency">
+            <div class="action-icon">🔍</div>
+            <div class="action-title">Check Consistency</div>
+            <div class="action-desc">Analyze your belief coherence</div>
+          </button>
+
+          <button class="action-card" id="view-patterns">
+            <div class="action-icon">📈</div>
+            <div class="action-title">View Patterns</div>
+            <div class="action-desc">Discover reading trends</div>
+          </button>
+        </div>
+
+        <div class="recent-section">
+          <h3>Recent Analyses</h3>
+          <div id="recent-list" class="article-list"></div>
+        </div>
+      </div>
+
+      <!-- Articles View -->
+      <div class="view" id="articles-view">
+        <header class="page-header">
+          <h2>Reading History</h2>
+          <p>All articles you've analyzed</p>
+        </header>
+
+        <div class="filters">
+          <input type="search" id="search-articles" placeholder="Search articles..." class="search-input">
+          <select id="filter-label" class="filter-select">
+            <option value="">All Frameworks</option>
+          </select>
+          <select id="sort-articles" class="filter-select">
+            <option value="recent">Most Recent</option>
+            <option value="oldest">Oldest First</option>
+            <option value="coherent">Most Coherent</option>
+          </select>
+        </div>
+
+        <div id="articles-list" class="article-list"></div>
+      </div>
+
+      <!-- Knowledge Graph View -->
+      <div class="view" id="graph-view">
+        <header class="page-header">
+          <h2>Knowledge Graph</h2>
+          <p>Visualize connections between your reading</p>
+        </header>
+
+        <div class="graph-controls">
+          <button class="btn" id="layout-force">Force Layout</button>
+          <button class="btn" id="layout-circular">Circular</button>
+          <button class="btn" id="layout-hierarchical">Hierarchical</button>
+        </div>
+
+        <div id="graph-canvas" class="graph-canvas">
+          <div class="graph-placeholder">
+            <div class="placeholder-icon">🕸️</div>
+            <div class="placeholder-text">Your knowledge graph will appear here</div>
+            <div class="placeholder-hint">Analyze some articles to build your graph</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beliefs View -->
+      <div class="view" id="beliefs-view">
+        <header class="page-header">
+          <h2>Belief Consistency Check</h2>
+          <p>Analyze coherence in your understanding</p>
+        </header>
+
+        <div class="input-section">
+          <textarea
+            id="belief-input"
+            placeholder="Paste your writing or thoughts here to check for internal consistency..."
+            class="belief-textarea"
+          ></textarea>
+          <button class="btn-primary" id="analyze-belief">Analyze Consistency</button>
+        </div>
+
+        <div id="belief-results" class="results-section"></div>
+      </div>
+
+      <!-- Export View -->
+      <div class="view" id="export-view">
+        <header class="page-header">
+          <h2>Export / Import</h2>
+          <p>Backup and restore your data</p>
+        </header>
+
+        <div class="export-section">
+          <div class="export-card">
+            <h3>📤 Export Your Data</h3>
+            <p>Download all your analyses and knowledge graph as JSON</p>
+            <button class="btn-primary" id="export-json">Export as JSON</button>
+            <button class="btn" id="export-csv">Export as CSV</button>
+          </div>
+
+          <div class="export-card">
+            <h3>📥 Import Data</h3>
+            <p>Restore from a previous backup</p>
+            <input type="file" id="import-file" accept=".json" class="file-input">
+            <button class="btn-primary" id="import-btn">Import Backup</button>
+          </div>
+
+          <div class="export-card">
+            <h3>🗑️ Clear All Data</h3>
+            <p>Permanently delete all stored analyses</p>
+            <button class="btn-danger" id="clear-all">Clear All Data</button>
+          </div>
+        </div>
+
+        <div class="stats-section">
+          <h3>Storage Statistics</h3>
+          <div id="storage-stats"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for adding new article -->
+  <div class="modal" id="add-article-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Analyze New Article</h3>
+        <button class="modal-close" id="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Article Title</label>
+          <input type="text" id="article-title" placeholder="Enter title..." class="input">
+        </div>
+        <div class="form-group">
+          <label>Article URL (optional)</label>
+          <input type="url" id="article-url" placeholder="https://..." class="input">
+        </div>
+        <div class="form-group">
+          <label>Article Content</label>
+          <textarea id="article-content" placeholder="Paste article text here..." class="textarea"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Your Notes (optional)</label>
+          <textarea id="article-notes" placeholder="Your thoughts about this article..." class="textarea-small"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="cancel-add">Cancel</button>
+        <button class="btn-primary" id="save-article">Analyze & Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

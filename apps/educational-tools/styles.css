@@ -1,0 +1,326 @@
+/* Educational Tools - Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container { max-width: 1400px; margin: 0 auto; }
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+.tab-btn.active {
+  background: rgba(0, 245, 255, 0.15);
+  border-color: rgba(0, 245, 255, 0.5);
+  color: #00f5ff;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: #00f5ff;
+}
+
+.description {
+  color: #888;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.fano-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 1200px) {
+  .fano-container { grid-template-columns: 1fr; }
+}
+
+.fano-canvas {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.control-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.control-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.control-section p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.selector-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.selector {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e0e0e0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.operator {
+  font-size: 1.2rem;
+  color: #00f5ff;
+}
+
+.result {
+  padding: 8px 16px;
+  background: rgba(255, 0, 255, 0.2);
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  border-radius: 6px;
+  color: #ff00ff;
+  font-weight: bold;
+  min-width: 80px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: rgba(0, 245, 255, 0.2);
+  border: 1px solid rgba(0, 245, 255, 0.5);
+  color: #00f5ff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn:hover {
+  background: rgba(0, 245, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.explanation {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(0, 255, 100, 0.05);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #00ff88;
+}
+
+.propagation-input {
+  margin-bottom: 16px;
+}
+
+.propagation-input label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.propagation-result {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* Exercises */
+.exercise-list {
+  display: grid;
+  gap: 24px;
+}
+
+.exercise-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.exercise-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #ff00ff;
+}
+
+.exercise-content {
+  margin: 20px 0;
+}
+
+.text-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+  border-left: 3px solid rgba(0, 245, 255, 0.5);
+}
+
+.text-box h4 {
+  font-size: 0.9rem;
+  color: #00f5ff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.exercise-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.practice-text {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  border-radius: 8px;
+  line-height: 1.8;
+}
+
+.exercise-result {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(0, 245, 255, 0.05);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 8px;
+}
+
+/* Theory */
+.theory-content {
+  display: grid;
+  gap: 20px;
+}
+
+.theory-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.theory-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #00f5ff;
+}
+
+.theory-card p {
+  margin-bottom: 12px;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.theory-card ul {
+  margin-left: 24px;
+  margin-bottom: 12px;
+}
+
+.theory-card li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.theory-card a {
+  color: #00f5ff;
+  text-decoration: none;
+}
+
+.theory-card a:hover {
+  text-decoration: underline;
+}
+
+.theory-card strong {
+  color: #fff;
+}
+
+.theory-card em {
+  color: #ff00ff;
+}

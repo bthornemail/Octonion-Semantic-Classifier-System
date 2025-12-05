@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Tools - Learn Critical Thinking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎓 Educational Tools</h1>
+      <p class="subtitle">Learn to think critically about information structure</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="fano">Fano Plane Explorer</button>
+      <button class="tab-btn" data-tab="exercises">Critical Thinking Exercises</button>
+      <button class="tab-btn" data-tab="theory">Theory & Background</button>
+    </div>
+
+    <!-- Fano Plane Explorer -->
+    <div class="tab-content active" id="fano-tab">
+      <div class="section">
+        <h2>Interactive Fano Plane Explorer</h2>
+        <p class="description">
+          Explore how ideas connect using octonion algebra. Each point represents a way of framing ideas.
+          Click on basis elements to see how they interact!
+        </p>
+
+        <div class="fano-container">
+          <div class="fano-canvas" id="fano-canvas">
+            <svg width="600" height="600" viewBox="0 0 600 600">
+              <!-- Fano plane will be drawn here -->
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7"
+                        refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#00f5ff" />
+                </marker>
+              </defs>
+
+              <!-- Center circle -->
+              <circle cx="300" cy="300" r="200" fill="none" stroke="rgba(0,245,255,0.2)" stroke-width="2"/>
+
+              <!-- Basis elements (7 points on circle) -->
+              <g id="basis-elements"></g>
+
+              <!-- Lines connecting them -->
+              <g id="connections"></g>
+
+              <!-- Labels -->
+              <g id="labels"></g>
+            </svg>
+          </div>
+
+          <div class="controls">
+            <div class="control-section">
+              <h3>Multiply Octonions</h3>
+              <p>Select two basis elements to multiply them and see the result!</p>
+
+              <div class="selector-group">
+                <select id="octonion-1" class="selector">
+                  <option value="1">e₁</option>
+                  <option value="2">e₂</option>
+                  <option value="3">e₃</option>
+                  <option value="4">e₄</option>
+                  <option value="5">e₅</option>
+                  <option value="6">e₆</option>
+                  <option value="7">e₇</option>
+                </select>
+
+                <span class="operator">×</span>
+
+                <select id="octonion-2" class="selector">
+                  <option value="1">e₁</option>
+                  <option value="2">e₂</option>
+                  <option value="3">e₃</option>
+                  <option value="4">e₄</option>
+                  <option value="5">e₅</option>
+                  <option value="6">e₆</option>
+                  <option value="7">e₇</option>
+                </select>
+
+                <span class="operator">=</span>
+
+                <div class="result" id="multiply-result">?</div>
+              </div>
+
+              <button class="btn" id="multiply-btn">Calculate</button>
+
+              <div class="explanation" id="multiplication-explanation"></div>
+            </div>
+
+            <div class="control-section">
+              <h3>Narrative Propagation</h3>
+              <p>See how starting from different perspectives leads to different conclusions</p>
+
+              <div class="propagation-input">
+                <label>Start from:</label>
+                <select id="start-dim" class="selector">
+                  <option value="1">e₁ - Root</option>
+                  <option value="2">e₂ - Sacral</option>
+                  <option value="3">e₃ - Solar Plexus</option>
+                  <option value="4">e₄ - Heart</option>
+                  <option value="5">e₅ - Throat</option>
+                  <option value="6">e₆ - Third Eye</option>
+                  <option value="7">e₇ - Crown</option>
+                </select>
+              </div>
+
+              <button class="btn" id="propagate-btn">Show Propagation</button>
+
+              <div class="propagation-result" id="propagation-result"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Critical Thinking Exercises -->
+    <div class="tab-content" id="exercises-tab">
+      <div class="section">
+        <h2>Critical Thinking Exercises</h2>
+        <p class="description">Gamified exercises to learn about narrative structure and coherence</p>
+
+        <div class="exercise-list">
+          <div class="exercise-card">
+            <h3>Exercise 1: Spot the Inconsistency</h3>
+            <p>Read two paragraphs and determine if they contradict each other.</p>
+
+            <div class="exercise-content">
+              <div class="text-box">
+                <h4>Text A</h4>
+                <p id="exercise-1-text-a">The economic recovery has been robust and sustained,
+                with unemployment falling to historic lows and consumer confidence soaring to
+                new heights. Businesses are thriving and expansion is happening across all sectors.</p>
+              </div>
+
+              <div class="text-box">
+                <h4>Text B</h4>
+                <p id="exercise-1-text-b">Many families are struggling to make ends meet as
+                inflation erodes purchasing power. Small businesses report difficulty staying
+                afloat amid rising costs and decreased consumer spending.</p>
+              </div>
+            </div>
+
+            <button class="btn" id="analyze-ex1">Analyze with Classifier</button>
+            <div class="exercise-result" id="result-ex1"></div>
+          </div>
+
+          <div class="exercise-card">
+            <h3>Exercise 2: Identify the Framework</h3>
+            <p>Read a passage and identify which semantic framework it primarily uses.</p>
+
+            <div class="exercise-content">
+              <textarea id="custom-text" placeholder="Paste any text here..." class="exercise-textarea"></textarea>
+            </div>
+
+            <button class="btn" id="analyze-custom">Analyze Framework</button>
+            <div class="exercise-result" id="result-custom"></div>
+          </div>
+
+          <div class="exercise-card">
+            <h3>Exercise 3: Coherence Check</h3>
+            <p>Determine if a text is internally consistent (H¹=0) or contains tensions (H¹=1)</p>
+
+            <div class="exercise-content">
+              <p class="practice-text" id="practice-text">
+                We must protect individual freedoms at all costs. Every person should have
+                the right to make their own choices without government interference. However,
+                we also need strong government mandates to ensure public safety and enforce
+                moral standards. The state should have the power to restrict behaviors that
+                harm society, even if individuals want to engage in them.
+              </p>
+            </div>
+
+            <button class="btn" id="analyze-ex3">Check Coherence</button>
+            <div class="exercise-result" id="result-ex3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theory & Background -->
+    <div class="tab-content" id="theory-tab">
+      <div class="section">
+        <h2>Theory & Background</h2>
+        <p class="description">Understanding the mathematics behind narrative analysis</p>
+
+        <div class="theory-content">
+          <div class="theory-card">
+            <h3>🎯 What are Octonions?</h3>
+            <p>
+              Octonions are an 8-dimensional number system (one real dimension + 7 imaginary).
+              They extend complex numbers (2D) and quaternions (4D) to create a richer algebraic structure.
+            </p>
+            <p>
+              <strong>Key Property:</strong> Octonions are <em>non-associative</em>, meaning
+              (a×b)×c ≠ a×(b×c) in general. This makes them perfect for modeling how
+              the <em>order</em> in which you encounter information matters!
+            </p>
+          </div>
+
+          <div class="theory-card">
+            <h3>📐 The Fano Plane</h3>
+            <p>
+              The Fano plane is a geometric structure with 7 points and 7 lines,
+              where each line contains exactly 3 points. It defines the multiplication
+              table for the imaginary octonion basis elements e₁, e₂, ..., e₇.
+            </p>
+            <p>
+              <strong>Why it matters:</strong> The Fano plane shows us which perspectives
+              naturally combine and which ones create new emergent framings.
+            </p>
+          </div>
+
+          <div class="theory-card">
+            <h3>🌀 Cohomology Class H¹</h3>
+            <p>
+              The cohomology class H¹(RP⁶; Z/2Z) is a topological invariant that
+              measures "winding" or "circulation" in the semantic space.
+            </p>
+            <ul>
+              <li><strong>H¹ = 0:</strong> Coherent narrative (single dominant framework)</li>
+              <li><strong>H¹ = 1:</strong> Tensions present (multiple competing frameworks)</li>
+            </ul>
+            <p>
+              This gives us a mathematical way to detect internal contradictions!
+            </p>
+          </div>
+
+          <div class="theory-card">
+            <h3>🔍 Zariski Coverings</h3>
+            <p>
+              In algebraic geometry, a Zariski covering is a collection of open sets
+              that covers a space. We use this concept to identify which semantic
+              frameworks have "significant probability mass" (coverage > threshold).
+            </p>
+            <p>
+              <strong>Interpretation:</strong> More Zariski coverings means the text
+              touches on multiple distinct perspectives.
+            </p>
+          </div>
+
+          <div class="theory-card">
+            <h3>🎓 Learn More</h3>
+            <p>Want to dive deeper? Check out these resources:</p>
+            <ul>
+              <li><a href="https://github.com/yourusername/Octonion-Semantic-Classifier-System" target="_blank">
+                Full Technical Documentation</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Octonion" target="_blank">
+                Wikipedia: Octonions</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Fano_plane" target="_blank">
+                Wikipedia: Fano Plane</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

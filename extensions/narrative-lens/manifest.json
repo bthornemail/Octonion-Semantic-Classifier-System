@@ -32,7 +32,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["worker.js"],
+      "resources": ["worker.js", "analysis-panel.js"],
       "matches": ["<all_urls>"]
     }
   ]

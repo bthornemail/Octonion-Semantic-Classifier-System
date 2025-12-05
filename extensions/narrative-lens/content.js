@@ -2,6 +2,16 @@
 // Narrative Lens - Content Script
 // Runs on every webpage to enable text analysis
 
+// Import analysis panel
+let AnalysisPanel;
+
+// Initialize with enhanced panel
+(function() {
+  const script = document.createElement('script');
+  script.src = chrome.runtime.getURL('analysis-panel.js');
+  document.head.appendChild(script);
+})();
+
 // Listen for messages from popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'analyzePage') {
@@ -17,10 +27,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const selectedText = window.getSelection().toString();
     if (selectedText) {
       analyzeText(selectedText).then(analysis => {
-        displayAnalysisOverlay(analysis, request.position);
+        // Use enhanced panel if available, fallback to basic overlay
+        if (typeof AnalysisPanel !== 'undefined') {
+          const panel = new AnalysisPanel();
+          panel.display(analysis, request.position);
+        } else {
+          displayAnalysisOverlay(analysis, request.position);
+        }
         sendResponse({ success: true, analysis });
       });
     }
+    return true;
+  }
+
+  if (request.type === 'showNotification') {
+    showNotification(request.message);
     return true;
   }
 });
@@ -158,6 +179,40 @@ async function classifyText(text) {
       resolve(response);
     });
   });
+}
+
+// Show notification
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(0, 245, 255, 0.5);
+    border-radius: 8px;
+    padding: 16px 20px;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    z-index: 9999999;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: slideInRight 0.3s ease-out;
+  `;
+
+  notification.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="font-size: 1.2rem;">${type === 'info' ? '💡' : '⚠️'}</div>
+      <div>${message}</div>
+    </div>
+  `;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.animation = 'slideOutRight 0.3s ease-out';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
 }
 
 console.log('Narrative Lens: Content script loaded');
